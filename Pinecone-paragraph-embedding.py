@@ -14,19 +14,11 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
 def read_chunks_from_file(input_file):
-    """
-    Reads the text file and processes paragraphs separated by single newlines.
-
-    Args:
-        input_file (str): Path to the paragraph chunk file.
-
-    Returns:
-        list: A list of clean paragraphs as strings.
-    """
     with open(input_file, 'r', encoding='utf-8') as file:
         paragraphs = file.read().split("\n")
     
     clean_paragraphs = [
+        # Handle quotes at the beginning and end of the paragraph
         re.sub(r'^[“”"\']+|[“”"\']+$', '', paragraph.strip())
         for paragraph in paragraphs
         if paragraph.strip()
@@ -35,14 +27,6 @@ def read_chunks_from_file(input_file):
     return clean_paragraphs
 
 def create_and_upload_embeddings(input_file, index_name=PINECONE_INDEX):
-    """
-    Creates embeddings for paragraph chunks and uploads them to Pinecone with metadata.
-
-    Args:
-        input_file (str): Path to the input text file with paragraph chunks.
-        index_name (str): Name of the Pinecone index.
-    """
-
     paragraphs = read_chunks_from_file(input_file)
     
     embeddings = model.encode(paragraphs)
