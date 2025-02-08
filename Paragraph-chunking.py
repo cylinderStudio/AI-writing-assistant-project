@@ -1,25 +1,9 @@
+# Breaks the input text into paragraphs (determined by double newlines), cleans and ouputs list of paragraphs
 def chunk_paragraphs(text):
-    """
-    Breaks the input text into paragraphs. Paragraphs are determined by double newlines.
-
-    Args:
-        text (str): The cleaned document text
-
-    Returns:
-        list: A list of paragraphs (strings)
-    """
     paragraphs = [paragraph.strip() for paragraph in text.split("\n\n") if paragraph.strip()]
     return paragraphs
 
 def chunk_paragraphs_from_file(input_file, output_file):
-    """
-    Opens a text file, chunks its contents into paragraphs, and saves the chunked paragraphs to a new file.
-
-    Args:
-        input_file (str): The path to the input text file
-        output_file (str): The path to the output text file where chunked paragraphs will be saved
-    """
-
     with open(input_file, 'r', encoding='utf-8') as file:
         text = file.read()
     

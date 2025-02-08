@@ -1,19 +1,6 @@
 import re
 
 def clean_text(text):
-    """
-    Cleans the input text by:
-    - Removing extra spaces within lines but preserving newline characters
-    - Preserving apostrophes and essential punctuation
-    - Removing non-ASCII characters
-    - Converting to lowercase
-
-    Args:
-        text (str): The raw document text
-
-    Returns:
-        str: The cleaned text
-    """
     # Convert to lowercase
     text = text.lower()
     
@@ -31,14 +18,6 @@ def clean_text(text):
 
 
 def clean_text_from_file(input_file, output_file):
-    """
-    Opens a text file, cleans its contents, and saves the cleaned text to a new file.
-    
-    Args:
-        input_file (str): The path to the input text file
-        output_file (str): The path to the output text file where the cleaned text will be saved
-    """
-
     with open(input_file, 'r', encoding='utf-8') as file:
         text = file.read()
     
