@@ -1,9 +1,8 @@
-
-![genai-assistant-ui](https://github.com/user-attachments/assets/b2955ece-2557-4810-93bd-0e1f85cc0fa7)
-
 # AI Writing Assistant Project
 
 This project is an experiment to create a generative AI assistant that could help a company’s marketing, advertising, or PR teams quickly generate documents that conform to style, tone, and brand guidelines.
+
+<img src="https://github.com/user-attachments/assets/b2955ece-2557-4810-93bd-0e1f85cc0fa7" alt="UI" width="600"/>
 
 **This repo contains the Python scripts used to:**
 1. Create training data
